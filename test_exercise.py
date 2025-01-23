@@ -6,7 +6,6 @@ def test_distance():
     lat1, long1 = 50.32873, -47.2363
     lat2, long2 = 77.38232, -99.8732
     dist = distance(lat1, long1, lat2, long2)
-
     # Expected results: About 3701
     assert 3700 <= dist <= 3705,f"Distance {dist} km is WRONG"
 
