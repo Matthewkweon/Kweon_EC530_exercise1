@@ -8,7 +8,7 @@ def test_distance():
     dist = distance(lat1, long1, lat2, long2)
 
     # Expected results: About 3701
-    assert 3700 <= dist <= 3705, f"Distance {dist} km is WRONG"
+    assert 3700 <= dist <= 3705,f"Distance {dist} km is WRONG"
 
 
 def test_matching():
