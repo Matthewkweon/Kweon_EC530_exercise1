@@ -70,5 +70,5 @@ def parse_csv(filepath):
                 latitudes.append(lat)
             except ValueError:
                 print(f"Skipping row with invalid longitude/latitude values: {row}")
-    
+            
     return longitudes, latitudes
