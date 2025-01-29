@@ -32,7 +32,8 @@ pip install numpy scipy pytest
 To test the code, you must following steps:
 - input a test case into my pytest file named "test_exercise.py"
     - you may want to comment out my test cases right now
-- Be sure that your csv file contains keywords "latitude, lat" or "longitude, long, lng"
+- Be sure that your csv file contains keywords "latitude, lat" or "longitude, long, lng
+    - Also make sure that the longitude and latitude only contains float numbers, no "North" or "south or "east or "west" attached to it. 
 - Place the .csv file in the codebase (such as other .csv files already there like test_1_curr.csv)
 - Write out a test function in my python script to test whatever you want to test. (Or do it in the exercise.py file, it doesn't matter)
 - Run: "pytest"

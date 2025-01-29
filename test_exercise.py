@@ -25,6 +25,7 @@ def test_matching():
     assert result == expected, f"Expected {expected}, got {result}"
     print(result)
 
+
 def test_parse_csv():
     current_location = parse_csv("test_2_curr.csv")
     print(current_location)
@@ -49,14 +50,13 @@ def test_2():
     result = match_coords_kdtree(curr_coords, dest_coords)
     # print(result)
 
+
+@pytest.mark.xfail(reason="We expect this to fail due to incorrect CSV format")
 def test_3():
     curr_coords = parse_csv("test_3_curr.csv")
-    dest_coords = parse_csv("test_3_dest.csv")
-
-    result = match_coords_kdtree(curr_coords, dest_coords)
+    
     # Should fail because the Cities excel format and not in longitude and latitude format, the Current
     # Cities .csv file isn't correct in its format
-
 
 
 def test_4():
@@ -64,3 +64,13 @@ def test_4():
     dest_coords = parse_csv("test_4_dest.csv")
 
     result = match_coords_kdtree(curr_coords, dest_coords)
+
+@pytest.mark.xfail(reason="We expect this to fail due to incorrect CSV format")
+def test_no_dest_arr():
+    curr_coords = parse_csv("test_2_curr.csv")
+
+
+@pytest.mark.xfail(reason="We expect this to fail due to incorrect CSV format")
+def test_north_south():
+    expected = [["47.5", "68.5"]]
+    actual = parse_csv(["47.5 E", "68.5 E"])
