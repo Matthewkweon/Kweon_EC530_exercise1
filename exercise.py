@@ -73,13 +73,13 @@ def match_coords(array1, array2):
                 "closest_coord": closest_coord,
                 "distance_km": min_distance
             }, level=logging.DEBUG)
-        else:
-            # Optionally handle no-match scenario
-            # results.append(None)
-            track_event(logger, "MatchCoords_NoMatch", {
-                "index": i,
-                "source_coord": curr_point
-            }, level=logging.WARNING)
+        # else:
+            
+        #     # track_event(logger, "MatchCoords_NoMatch", {
+        #     #     "index": i,
+        #     #     "source_coord": curr_point
+        #     # }, level=logging.WARNING)
+        #     pass
 
     track_event(logger, "MatchCoords_End")
     return results
@@ -96,11 +96,11 @@ def match_coords_kdtree(array1, array2):
         "num_array2": len(array2)
     })
 
-    if not array2:
-        track_event(logger, "MatchCoordsKDTree_EmptyDestination", {
-            "reason": "Destination array is empty"
-        }, level=logging.WARNING)
-        return [None] * len(array1)
+    # if not array2:
+    #     track_event(logger, "MatchCoordsKDTree_EmptyDestination", {
+    #         "reason": "Destination array is empty"
+    #     }, level=logging.WARNING)
+    #     return [None] * len(array1)
 
     arr2_np = np.array(array2)  # shape: (m, 2)
     tree = cKDTree(arr2_np)
@@ -136,12 +136,12 @@ def parse_csv(filepath):
     with open(filepath, mode='r', newline='', encoding='utf-8') as csv_file:
         reader = csv.DictReader(csv_file)
 
-        if not reader.fieldnames:
-            track_event(logger, "ParseCSV_NoHeader", {
-                "message": "CSV has no header row or is empty.",
-                "filepath": filepath
-            }, level=logging.ERROR)
-            return coords
+        # if not reader.fieldnames:
+        #     track_event(logger, "ParseCSV_NoHeader", {
+        #         "message": "CSV has no header row or is empty.",
+        #         "filepath": filepath
+        #     }, level=logging.ERROR)
+        #     return coords
 
         lng_col = None
         lat_col = None
@@ -175,4 +175,5 @@ def parse_csv(filepath):
         "num_coords": len(coords)
     })
     return coords
+
 

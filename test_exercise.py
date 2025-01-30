@@ -2,6 +2,7 @@ import math
 import pytest
 from unittest.mock import patch, mock_open
 from exercise import distance, match_coords, parse_csv, match_coords_kdtree
+from event_logging import track_event, get_json_logger
 
 def test_distance():
     lat1, long1 = 50.32873, -47.2363
